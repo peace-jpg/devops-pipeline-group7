@@ -1,0 +1,20 @@
+{
+  "name": "devops-pipeline-group7",
+  "version": "1.0.0",
+  "description": "DevOps Pipeline Project",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"No tests specified\" && exit 0",
+    "lint": "echo \"No linting specified\" && exit 0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NPC-GROUP-7/devops-pipeline-group7.git"
+  },
+  "keywords": [
+    "devops",
+    "ci-cd"
+  ],
+  "author": "",
+  "license": "ISC"
+}
