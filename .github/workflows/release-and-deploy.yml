@@ -1,0 +1,43 @@
+```yaml
+name: Release and Deploy
+
+on:
+  push:
+    branches:
+      - main
+      - 'release/*'
+      - develop
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Build
+        run: |
+          # Insert build steps for your app
+          echo "Build step placeholder"
+
+      - name: Create Release (when pushing tags or release/*)
+        if: startsWith(github.ref, 'refs/heads/release/') || github.ref == 'refs/heads/main'
+        run: |
+          echo "Create release or tag - optional step (use actions/create-release for automated releases)"
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment: ${{ contains(github.ref, 'main') && 'production' || 'staging' }}
+    # Status check identifier: release-deploy
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Deploy
+        run: |
+          # Deploy step placeholder:
+          # - deploy to staging for develop or release/*
+          # - deploy to production for main
+          echo "Deploy placeholder"
+    # For production, configure required reviewers / protection in GitHub Environments
